@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Coaching for Senior Leaders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f0f0f0;
+            border: 2px solid #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #f0f0f0;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+        }
+
+        .credentials {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+
+        .credentials h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+            color: #666;
+        }
+
+        .credentials li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .credentials li:before {
+            content: "✓";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Challenges Section */
+        .challenges {
+            background: white;
+        }
+
+        .challenges-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .challenge-item {
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.2rem;
+        }
+
+        .challenge-item:last-child {
+            border-bottom: none;
+        }
+
+        .challenge-item strong {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        /* Stories Section */
+        .stories {
+            background: #f8f9fa;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .story-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .story-card p {
+            color: #666;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Approach Section */
+        .approach {
+            background: white;
+        }
+
+        .approach-points {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .approach-point {
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .approach-point:last-child {
+            border-bottom: none;
+        }
+
+        .approach-point h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .approach-point p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 50px;
+            align-items: flex-start;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-photo {
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-info {
+            margin: 40px 0;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .contact-form-section {
+            margin-top: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .confidentiality-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+        }
+
+        .confidentiality-note h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .confidentiality-note p {
+            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .submit-button {
+            background: #3498db;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Blog Preview Section */
+        .blog {
+            background: #f8f9fa;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .blog-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .stories-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-wrapper,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .about-photo {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .contact-photo {
+                max-width: 150px;
+                margin: 0 auto;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .contact-form-section {
+                margin-top: 40px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Juan Vizcaíno Lara Logo" class="logo-img">
+                <span>Juan Vizcaíno Lara</span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>👉 Executive Coaching for Leaders Who Carry the Weight of Decisions</h1>
+            <p class="subtitle">Leading at the top is demanding. I help directors and senior executives gain clarity, resilience, and confidence in their leadership — through confidential, psychology-informed coaching with a business lens.</p>
+            <a href="#contact" class="cta-button">🔵 Book a confidential consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Who I Am</h2>
+            <div class="about-wrapper fade-in">
+                <img src="juan-photo-professional.jpg" alt="Juan Vizcaíno Lara - Executive Coach" class="about-photo">
+                <div class="about-content">
+                    <p>I've spent my career at the intersection of business, people, and psychology. As an HR leader and therapist with research experience, I've seen firsthand the unique pressures executives face: the isolation, the constant decision-making, and the need to project strength even when energy runs low.</p>
+                    <p>My mission is simple: to provide senior leaders with a discreet, independent space to think, reflect, and grow — so they can perform at their best without losing themselves in the process.</p>
+                    
+                    <div class="credentials">
+                        <h4>Background & Expertise</h4>
+                        <ul>
+                            <li>HR Leadership Experience</li>
+                            <li>Licensed Therapist</li>
+                            <li>Psychology Research Background</li>
+                            <li>Executive Coaching Certification</li>
+                            <li>Business Strategy Understanding</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">How I Work With Leaders</h2>
+            <p class="section-subtitle">Confidential, tailored, and results-oriented. I don't apply cookie-cutter coaching models — I combine psychological insight with business understanding.</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>1:1 Executive Coaching</h3>
+                    <p>Private sessions designed to strengthen clarity, resilience, and leadership mindset.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Leadership Mindset Development</h3>
+                    <p>Helping leaders manage stress, navigate uncertainty, and inspire with confidence.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Team & Leadership Workshops</h3>
+                    <p>Group sessions to enhance executive team dynamics and collective decision-making.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#contact" class="cta-button">Schedule a discovery call to explore what's right for you</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <h2 class="section-title">Do Any of These Feel Familiar?</h2>
+            <div class="challenges-list fade-in">
+                <div class="challenge-item">
+                    <strong>The loneliness of leadership</strong> — no safe place to speak openly.
+                </div>
+                <div class="challenge-item">
+                    <strong>Decision fatigue</strong> — constant pressure, never enough clarity.
+                </div>
+                <div class="challenge-item">
+                    <strong>Stress and burnout</strong> — always "on," little time to recover.
+                </div>
+                <div class="challenge-item">
+                    <strong>Imposter feelings</strong> — questioning yourself despite success.
+                </div>
+                <div class="challenge-item">
+                    <strong>Balancing business demands</strong> with personal wellbeing.
+                </div>
+            </div>
+            <p class="section-subtitle">If these resonate, you're not alone. And you don't have to carry them alone.</p>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <h2 class="section-title">Stories from the Executive Chair</h2>
+            <div class="stories-grid">
+                <div class="story-card fade-in">
+                    <h3>The Isolated CEO</h3>
+                    <p>A director admitted: "I wear a mask every day." Through coaching, he found space to take it off and lead with renewed energy.</p>
+                </div>
+                <div class="story-card fade-in">
+                    <h3>The Overloaded Manager</h3>
+                    <p>A senior leader was drowning in meetings and had lost touch with strategy. Together, we worked on boundaries and focus — he regained time, clarity, and balance.</p>
+                </div>
+                <div class="story-card fade-in">
+                    <h3>The Confident but Alone Executive</h3>
+                    <p>One client realized that true strength wasn't about having all the answers, but about building resilience and making space to reflect.</p>
+                </div>
+            </div>
+            <p class="section-subtitle">(All stories are anonymized and drawn from real executive challenges.)</p>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="approach">
+        <div class="container">
+            <h2 class="section-title">Why Work With Me</h2>
+            <div class="approach-points fade-in">
+                <div class="approach-point">
+                    <h3>I'm not HR support →</h3>
+                    <p>I work independently and confidentially.</p>
+                </div>
+                <div class="approach-point">
+                    <h3>I'm not a traditional therapist →</h3>
+                    <p>I focus on leadership performance, not pathology.</p>
+                </div>
+                <div class="approach-point">
+                    <h3>I'm not just a business consultant →</h3>
+                    <p>I also address the inner challenges of leadership.</p>
+                </div>
+            </div>
+            <p class="section-subtitle">My hybrid approach blends psychological depth, HR leadership experience, and business understanding, so you get support that addresses both your mindset and your strategic role.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Insights on Leadership & Resilience</h2>
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <h3>The Hidden Cost of Decision Fatigue</h3>
+                    <p>How endless choices drain executive energy and what to do about it.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+                <div class="blog-card fade-in">
+                    <h3>Building Resilience at the Top</h3>
+                    <p>Strategies for maintaining strength while staying human in leadership.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+                <div class="blog-card fade-in">
+                    <h3>The Psychology of Executive Presence</h3>
+                    <p>Understanding what makes leaders truly compelling and confident.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Talk</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9; text-align: center;">Every conversation is confidential. If you'd like to explore how coaching could support you, let's schedule a brief call.</p>
+            
+            <div class="contact-wrapper">
+                <img src="juan-photo-casual.jpg" alt="Juan Vizcaíno Lara" class="contact-photo">
+                <div class="contact-info">
+                    <p>📩 Email: juan@vizcainolara.com</p>
+                    <p>📞 Phone: +34 XXX XXX XXX</p>
+                    <p>📅 LinkedIn: /in/juanvizcainolara</p>
+                    <p>🌍 Based in Madrid, Spain</p>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <div class="confidentiality-note">
+                    <h4>Confidentiality Note</h4>
+                    <p>All information shared through this form is treated with complete confidentiality. Your inquiry and any subsequent conversations are private and protected, ensuring you can explore coaching support with full discretion.</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organization / Role</label>
+                        <input type="text" id="organization" name="organization" placeholder="e.g., CEO at Tech Startup, Director of Operations">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="areaOfInterest">Area of Interest / Challenge</label>
+                        <select id="areaOfInterest" name="areaOfInterest">
+                            <option value="">Please select an area of focus</option>
+                            <option value="decision-making">Decision-making under pressure</option>
+                            <option value="leadership-clarity">Leadership clarity & confidence</option>
+                            <option value="mental-health-resilience">Mental health & resilience as a competitive advantage</option>
+                            <option value="purpose-impact">Purpose & long-term impact</option>
+                            <option value="other">Other / Multiple areas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message / Notes</label>
+                        <textarea id="message" name="message" placeholder="Share any specific challenges, goals, or questions you'd like to discuss (optional)"></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">Send Confidential Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.fullName || !data.email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // In a real implementation, you would send this data to your server
+            // For now, we'll just show a success message
+            alert('Thank you for your confidential inquiry. I will respond within 24 hours to discuss how we can work together.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
