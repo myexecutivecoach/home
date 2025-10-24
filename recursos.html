@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Coaching Ejecutivo - CEDE</title>
+    <meta name="description" content="Descarga guías, plantillas y herramientas prácticas para líderes que buscan claridad y crecimiento.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f0f0f0;
+            border: 2px solid #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232c3e50" width="1200" height="600"/><path fill="%23ffffff" opacity="0.05" d="M0 300L50 283.3C100 266.7 200 233.3 300 216.7C400 200 500 200 600 216.7C700 233.3 800 266.7 900 283.3C1000 300 1100 300 1150 300L1200 300L1200 600L1150 600C1100 600 1000 600 900 600C800 600 700 600 600 600C500 600 400 600 300 600C200 600 100 600 50 600L0 600Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .category-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .category-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .category-link:hover {
+            color: #2980b9;
+        }
+
+        /* Resources Grid Section */
+        .resources {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .resource-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-type {
+            display: inline-block;
+            background: #e8f4f8;
+            color: #2980b9;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .resource-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            line-height: 1.3;
+        }
+
+        .resource-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .resource-cta {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .resource-cta:hover {
+            background: #2980b9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-button-large {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button-large:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .newsletter-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .newsletter-form button {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #2980b9;
+        }
+
+        /* Modal for Resource Download */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .modal-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .modal-submit {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-submit:hover {
+            background: #2980b9;
+        }
+
+        .privacy-note {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .categories-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .modal-content {
+                padding: 30px 25px;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="pnglogo.png" alt="Juan Vizcaíno Lara Logo" class="logo-img">
+                <span>CEDE</span>
+            </a>
+            <ul>
+                <li><a href="index.html#home">Inicio</a></li>
+                <li><a href="index.html#about">Sobre mí</a></li>
+                <li><a href="index.html#services">Servicios</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Recursos para líderes que buscan claridad y crecimiento</h1>
+            <p class="subtitle">Materiales prácticos, guías y herramientas que utilizo en procesos reales de coaching ejecutivo.</p>
+            <a href="#recursos-grid" class="cta-button">Explora los recursos</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">¿Qué tipo de recurso necesitas?</h2>
+            <p class="section-subtitle">Herramientas diseñadas para diferentes aspectos del liderazgo ejecutivo</p>
+            
+            <div class="categories-grid fade-in">
+                <div class="category-card">
+                    <div class="category-icon">📘</div>
+                    <h3>Guías & Whitepapers</h3>
+                    <p>Análisis profundos y frameworks estratégicos para entender los desafíos del liderazgo moderno.</p>
+                    <a href="#recursos-grid" class="category-link">Explorar →</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🧭</div>
+                    <h3>Workbooks & Autoevaluaciones</h3>
+                    <p>Herramientas interactivas para reflexionar sobre tu estilo de liderazgo y áreas de crecimiento.</p>
+                    <a href="#recursos-grid" class="category-link">Explorar →</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🧰</div>
+                    <h3>Checklists & Plantillas</h3>
+                    <p>Recursos prácticos y listos para usar en tu día a día como líder ejecutivo.</p>
+                    <a href="#recursos-grid" class="category-link">Explorar →</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🎥</div>
+                    <h3>Webinars & Clases</h3>
+                    <p>Contenido en vídeo con insights, estrategias y casos reales de transformación ejecutiva.</p>
+                    <a href="#recursos-grid" class="category-link">Explorar →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Grid Section -->
+    <section id="recursos-grid" class="resources">
+        <div class="container">
+            <h2 class="section-title">Todos los recursos disponibles</h2>
+            
+            <div class="resources-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">✓</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Checklist</span>
+                        <h3>10 comportamientos que diferencian a los líderes que crecen</h3>
+                        <p>Una lista práctica de hábitos diarios que separan a los líderes reactivos de los líderes adaptativos y resilientes.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('checklist-10-comportamientos'); return false;">Descargar gratis</a>
+                    </div>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">📋</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Workbook</span>
+                        <h3>Tu mapa de claridad directiva: de la confusión a la acción</h3>
+                        <p>Un workbook guiado de 15 páginas para identificar tus prioridades reales y eliminar el ruido estratégico.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('workbook-claridad'); return false;">Descargar gratis</a>
+                    </div>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">🎯</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Assessment</span>
+                        <h3>¿Eres un líder reactivo o adaptativo?</h3>
+                        <p>Test de autoevaluación de 20 preguntas con análisis personalizado de tu estilo de liderazgo actual.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('assessment-reactivo'); return false;">Hacer test</a>
+                    </div>
+                </div>
+
+                <!-- Resource 4 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">📄</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Whitepaper</span>
+                        <h3>Liderazgo sostenible en entornos de alta presión</h3>
+                        <p>Estudio de 25 páginas sobre cómo mantener el rendimiento ejecutivo sin sacrificar la salud mental.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('whitepaper-sostenible'); return false;">Descargar PDF</a>
+                    </div>
+                </div>
+
+                <!-- Resource 5 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">📅</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Template</span>
+                        <h3>Agenda de reflexión semanal del líder eficaz</h3>
+                        <p>Plantilla estructurada para tu ritual semanal de reflexión estratégica y alineación de prioridades.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('template-agenda'); return false;">Descargar plantilla</a>
+                    </div>
+                </div>
+
+                <!-- Resource 6 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">💡</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Cheat Sheet</span>
+                        <h3>Las 5 preguntas que todo líder debería hacerse cada lunes</h3>
+                        <p>Una guía rápida de una página para iniciar tu semana con claridad, propósito y enfoque estratégico.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('cheatsheet-preguntas'); return false;">Descargar</a>
+                    </div>
+                </div>
+
+                <!-- Resource 7 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">🎥</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Webinar</span>
+                        <h3>Cómo dirigir desde la calma en tiempos de cambio</h3>
+                        <p>Sesión grabada de 45 minutos con estrategias prácticas para mantener la serenidad ejecutiva.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('webinar-calma'); return false;">Ver webinar</a>
+                    </div>
+                </div>
+
+                <!-- Resource 8 -->
+                <div class="resource-card fade-in">
+                    <div class="resource-image">🎓</div>
+                    <div class="resource-content">
+                        <span class="resource-type">Mini-curso</span>
+                        <h3>Introducción al Coaching Ejecutivo: más allá del desempeño</h3>
+                        <p>Serie de 5 emails con lecciones sobre cómo el coaching transforma el liderazgo desde adentro.</p>
+                        <a href="#" class="resource-cta" onclick="openModal('minicurso-intro'); return false;">Inscribirme gratis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Quieres aplicar estas herramientas a tu propio contexto de liderazgo?</h2>
+            <p>Agenda una conversación confidencial para descubrir cómo un proceso de coaching ejecutivo puede ayudarte a avanzar con claridad.</p>
+            <a href="index.html#contact" class="cta-button-large">Reserva tu sesión exploratoria gratuita</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-wrapper fade-in">
+                <h2>Recibe reflexiones e insights sobre liderazgo cada mes</h2>
+                <p>Únete a cientos de ejecutivos que reciben estrategias prácticas, casos reales y herramientas para liderar con claridad.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="tu.email@empresa.com" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Modal -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Descarga tu recurso</h3>
+            <p id="modalDescription">Introduce tu información para acceder al recurso de forma inmediata.</p>
+            
+            <form class="modal-form" id="downloadForm">
+                <div class="form-group">
+                    <label for="modalName">Nombre completo *</label>
+                    <input type="text" id="modalName" name="name" required placeholder="Tu nombre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalEmail">Correo electrónico *</label>
+                    <input type="email" id="modalEmail" name="email" required placeholder="tu.email@empresa.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalCompany">Empresa / Puesto (opcional)</label>
+                    <input type="text" id="modalCompany" name="company" placeholder="CEO, Director de Operaciones, etc.">
+                </div>
+                
+                <input type="hidden" id="resourceId" name="resourceId">
+                
+                <button type="submit" class="modal-submit">Descargar ahora</button>
+                
+                <p class="privacy-note">Respetamos tu privacidad. No compartiremos tu información con terceros.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(resourceId) {
+            const modal = document.getElementById('downloadModal');
+            const resourceTitles = {
+                'checklist-10-comportamientos': '10 comportamientos que diferencian a los líderes que crecen',
+                'workbook-claridad': 'Tu mapa de claridad directiva',
+                'assessment-reactivo': '¿Eres un líder reactivo o adaptativo?',
+                'whitepaper-sostenible': 'Liderazgo sostenible en entornos de alta presión',
+                'template-agenda': 'Agenda de reflexión semanal del líder eficaz',
+                'cheatsheet-preguntas': 'Las 5 preguntas que todo líder debería hacerse cada lunes',
+                'webinar-calma': 'Cómo dirigir desde la calma en tiempos de cambio',
+                'minicurso-intro': 'Introducción al Coaching Ejecutivo'
+            };
+            
+            document.getElementById('modalTitle').textContent = resourceTitles[resourceId];
+            document.getElementById('resourceId').value = resourceId;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Download form submission
+        document.getElementById('downloadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send this to your backend/email service
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert(`¡Gracias ${data.name}! Tu recurso "${document.getElementById('modalTitle').textContent}" se ha enviado a ${data.email}.\n\nRevisa tu bandeja de entrada en los próximos minutos.`);
+            
+            // Close modal and reset form
+            closeModal();
+            this.reset();
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por suscribirte! Recibirás contenido valioso sobre liderazgo ejecutivo cada mes.');
+            this.reset();
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Smooth scroll to resources
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
