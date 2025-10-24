@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ideas sobre Liderazgo y Resiliencia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f0f0f0;
+            border: 2px solid #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Blog Articles Section */
+        .blog-articles {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .article-grid {
+            display: grid;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .article-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .article-body {
+            padding: 40px;
+        }
+
+        .article-body h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .article-body p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .article-body strong {
+            color: #2c3e50;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .cta-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .article-header {
+                padding: 30px 25px;
+            }
+
+            .article-title {
+                font-size: 1.6rem;
+            }
+
+            .article-body {
+                padding: 30px 25px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="pnglogo.png" alt="Juan Vizcaíno Lara Logo" class="logo-img">
+                <span>CEDE</span>
+            </a>
+            <ul>
+                <li><a href="index.html#home">Inicio</a></li>
+                <li><a href="index.html#about">Sobre mí</a></li>
+                <li><a href="index.html#services">Servicios</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Ideas sobre Liderazgo y Resiliencia</h1>
+            <p>Reflexiones basadas en psicología, estrategia y la realidad del liderazgo ejecutivo</p>
+        </div>
+    </section>
+
+    <!-- Blog Articles -->
+    <section class="blog-articles">
+        <div class="container">
+            <div class="article-grid">
+                
+                <!-- Article 1 -->
+                <article class="article fade-in">
+                    <div class="article-header">
+                        <div class="article-meta">Liderazgo · 8 min de lectura</div>
+                        <h2 class="article-title">El coste oculto de la fatiga de decisión</h2>
+                        <p class="article-excerpt">Cómo las decisiones interminables agotan la energía del ejecutivo y qué hacer al respecto.</p>
+                    </div>
+                    <div class="article-body">
+                        <p>Como líder ejecutivo, cada día te enfrentas a docenas, si no cientos, de decisiones. Desde lo estratégico hasta lo operativo, desde el "sí" o "no" hasta el "cuándo" y "cómo". Pero hay un coste invisible que rara vez se menciona: <strong>la fatiga de decisión</strong>.</p>
+
+                        <h3>¿Qué es la fatiga de decisión?</h3>
+                        <p>La fatiga de decisión es el deterioro de la calidad de nuestras decisiones después de una larga sesión de toma de decisiones. Es un fenómeno psicológico estudiado extensamente que muestra cómo nuestra capacidad mental es un recurso limitado.</p>
+
+                        <p>Imagina tu capacidad de decisión como una batería que se agota con cada elección que haces. Al final del día, incluso las decisiones simples se vuelven abrumadoras. Esto explica por qué muchos ejecutivos brillantes toman sus peores decisiones al final de reuniones maratonianas.</p>
+
+                        <h3>Los síntomas invisibles</h3>
+                        <p>La fatiga de decisión no siempre es obvia. Se manifiesta de formas sutiles:</p>
+                        <ul>
+                            <li><strong>Procrastinación en decisiones importantes</strong> – Pospones lo que requiere pensamiento profundo</li>
+                            <li><strong>Decisiones impulsivas</strong> – Eliges la opción más fácil o la primera que aparece</li>
+                            <li><strong>Irritabilidad y frustración</strong> – Te molestan interrupciones que normalmente no te afectarían</li>
+                            <li><strong>Evitación de decisiones</strong> – Delegas en exceso o simplemente no decides</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p>"No es la cantidad de decisiones lo que agota a un líder, sino la falta de estrategia para gestionarlas."</p>
+                        </div>
+
+                        <h3>Estrategias para combatir la fatiga de decisión</h3>
+                        
+                        <p><strong>1. Automatiza las decisiones triviales</strong><br>
+                        Steve Jobs y Mark Zuckerberg son famosos por usar la misma ropa cada día. No es por falta de estilo, sino por conservar energía mental para lo que importa. Identifica decisiones rutinarias y créales sistemas o reglas predefinidas.</p>
+
+                        <p><strong>2. Prioriza las decisiones críticas en la mañana</strong><br>
+                        Tu capacidad de decisión está en su punto máximo temprano en el día. Reserva las primeras horas para las decisiones más importantes y complejas, no para correos electrónicos o reuniones de rutina.</p>
+
+                        <p><strong>3. Implementa "paradas de decisión"</strong><br>
+                        Establece límites claros sobre cuándo y cuántas decisiones tomarás en un día. Si una reunión genera más de 5 decisiones importantes, programa una segunda sesión para el día siguiente.</p>
+
+                        <p><strong>4. Delega con claridad</strong><br>
+                        No todas las decisiones requieren tu participación. Define criterios claros para qué decisiones deben llegar a ti y cuáles pueden ser tomadas por tu equipo. Esto no es abdicar responsabilidad, es liderazgo estratégico.</p>
+
+                        <p><strong>5. Cuida tu energía física</strong><br>
+                        La fatiga de decisión está directamente relacionada con tu estado físico. El sueño, la nutrición y el ejercicio no son lujos, son herramientas de rendimiento ejecutivo.</p>
+
+                        <h3>El impacto en tu organización</h3>
+                        <p>Tu fatiga de decisión no solo te afecta a ti. Cuando estás agotado mentalmente, tus equipos lo sienten. Las decisiones inconsistentes crean confusión, la evitación genera cuellos de botella, y la irritabilidad daña la cultura.</p>
+
+                        <p>Al gestionar conscientemente tu capacidad de decisión, no solo mejoras tu propio rendimiento, sino que creas un entorno más predecible y eficiente para toda tu organización.</p>
+
+                        <div class="cta-section">
+                            <h3>¿Sientes el peso de demasiadas decisiones?</h3>
+                            <p>En nuestras sesiones de coaching, trabajamos en estrategias personalizadas para optimizar tu energía de decisión y mantener tu claridad mental.</p>
+                            <a href="index.html#contact" class="cta-button">Agenda una conversación confidencial</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article fade-in">
+                    <div class="article-header">
+                        <div class="article-meta">Resiliencia · 10 min de lectura</div>
+                        <h2 class="article-title">Construyendo resiliencia en la cima</h2>
+                        <p class="article-excerpt">Estrategias para mantener la fortaleza sin perder la humanidad al liderar.</p>
+                    </div>
+                    <div class="article-body">
+                        <p>La resiliencia no es simplemente "aguantar" o "ser fuerte". Es la capacidad de enfrentar la adversidad, adaptarse al cambio y recuperarse de los contratiempos sin perder tu esencia. Para los líderes ejecutivos, esta habilidad es fundamental, pero a menudo se malinterpreta.</p>
+
+                        <h3>El mito de la resiliencia invencible</h3>
+                        <p>Existe una narrativa peligrosa en el mundo corporativo: que los líderes deben ser inquebrantables, siempre optimistas, sin fisuras. Pero esta versión de "resiliencia" es insostenible y, francamente, inhumana.</p>
+
+                        <p>La verdadera resiliencia no es la ausencia de vulnerabilidad, sino la capacidad de reconocer tus límites, procesarlos y seguir adelante con propósito renovado.</p>
+
+                        <h3>Las tres dimensiones de la resiliencia ejecutiva</h3>
+                        
+                        <p><strong>1. Resiliencia Emocional</strong><br>
+                        Es tu capacidad para gestionar tus emociones bajo presión sin reprimirlas ni ser dominado por ellas. Los líderes emocionalmente resilientes:</p>
+                        <ul>
+                            <li>Reconocen sus emociones sin juzgarlas</li>
+                            <li>Procesan el estrés de forma constructiva</li>
+                            <li>Mantienen la perspectiva en momentos de crisis</li>
+                            <li>Se recuperan de decepciones sin volverse cínicos</li>
+                        </ul>
+
+                        <p><strong>2. Resiliencia Cognitiva</strong><br>
+                        Es tu habilidad para mantener la claridad mental y tomar decisiones efectivas incluso en la incertidumbre. Incluye:</p>
+                        <ul>
+                            <li>Pensamiento flexible ante cambios inesperados</li>
+                            <li>Capacidad de reformular situaciones negativas</li>
+                            <li>Mantener el enfoque en lo que puedes controlar</li>
+                            <li>Aprender de los fracasos sin quedar paralizado por ellos</li>
+                        </ul>
+
+                        <p><strong>3. Resiliencia Relacional</strong><br>
+                        Tu capacidad para mantener relaciones sólidas y de apoyo, especialmente cuando más las necesitas:</p>
+                        <ul>
+                            <li>Pedir ayuda sin sentirlo como debilidad</li>
+                            <li>Construir redes de confianza antes de necesitarlas</li>
+                            <li>Ser vulnerable de manera estratégica</li>
+                            <li>Mantener conexiones significativas a pesar de la presión</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p>"La resiliencia no se trata de ser fuerte todo el tiempo. Se trata de saber cómo recuperarte cuando inevitablemente te derrumbes."</p>
+                        </div>
+
+                        <h3>Prácticas concretas para fortalecer tu resiliencia</h3>
+
+                        <p><strong>Crea rituales de recuperación</strong><br>
+                        La resiliencia requiere momentos de descompresión intencional. Identifica qué te restaura genuinamente (no solo te distrae) y protege ese tiempo como protegerías una reunión con el consejo.</p>
+
+                        <p><strong>Cultiva una narrativa de crecimiento</strong><br>
+                        Cómo interpretas los desafíos determina tu capacidad de superarlos. En lugar de "esto no debería estar pasando", pregúntate "¿qué puedo aprender de esto?" o "¿cómo puede esto fortalecerme?"</p>
+
+                        <p><strong>Desarrolla tu "equipo de cocina"</strong><br>
+                        Todos los líderes necesitan espacios donde puedan ser humanos, no solo íconos. Esto puede ser un coach, un mentor, un grupo de pares o amigos cercanos. Gente con quien puedas ser real sin consecuencias políticas.</p>
+
+                        <p><strong>Practica la micro-resiliencia</strong><br>
+                        No esperes a la crisis para activar tu resiliencia. Pequeñas prácticas diarias construyen tu capacidad:</p>
+                        <ul>
+                            <li>60 segundos de respiración consciente entre reuniones</li>
+                            <li>Una caminata de 10 minutos para resetear tu mente</li>
+                            <li>Escribir tres cosas que apreciaste hoy antes de dormir</li>
+                            <li>Decir "no" a una cosa que no sirve a tus prioridades</li>
+                        </ul>
+
+                        <h3>La resiliencia como ventaja competitiva</h3>
+                        <p>En un mundo empresarial cada vez más volátil e incierto, la resiliencia no es un bonus, es un imperativo estratégico. Las organizaciones más adaptables son lideradas por ejecutivos que han cultivado esta capacidad en sí mismos.</p>
+
+                        <p>Cuando eres resiliente, no solo sobrevives a las crisis, las navegas con claridad. Tus equipos confían más en tu liderazgo porque perciben tu estabilidad. Y tú mismo experimentas menos desgaste y más sostenibilidad en tu carrera.</p>
+
+                        <div class="cta-section">
+                            <h3>¿Quieres desarrollar una resiliencia genuina?</h3>
+                            <p>Te acompaño a construir resiliencia que te fortalezca sin endurecerte, que te proteja sin aislarte.</p>
+                            <a href="index.html#contact" class="cta-button">Comienza la conversación</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article fade-in">
+                    <div class="article-header">
+                        <div class="article-meta">Presencia Ejecutiva · 7 min de lectura</div>
+                        <h2 class="article-title">La psicología de la presencia ejecutiva</h2>
+                        <p class="article-excerpt">Entender qué hace realmente atractivos y seguros a los líderes.</p>
+                    </div>
+                    <div class="article-body">
+                        <p>Todos conocemos a ese líder. El que entra a una sala y, sin decir palabra, cambia la energía. No es necesariamente el más carismático o extrovertido. Pero hay algo en su presencia que inspira confianza, respeto y atención. ¿Qué es exactamente esa cualidad?</p>
+
+                        <h3>La presencia ejecutiva no es lo que crees</h3>
+                        <p>Contrario a la creencia popular, la presencia ejecutiva no es:</p>
+                        <ul>
+                            <li>Ser la persona más ruidosa en la sala</li>
+                            <li>Dominar cada conversación</li>
+                            <li>Proyectar perfección o invencibilidad</li>
+                            <li>Tener todas las respuestas inmediatamente</li>
+                        </ul>
+
+                        <p>De hecho, muchos de estos comportamientos pueden erosionar tu presencia en lugar de fortalecerla. La verdadera presencia ejecutiva es más sutil y, paradójicamente, más poderosa.</p>
+
+                        <h3>Los pilares psicológicos de la presencia</h3>
+
+                        <p><strong>1. Autenticidad calibrada</strong><br>
+                        La presencia genuina requiere que seas tú mismo, pero con consciencia del contexto. No se trata de compartir todo sobre ti, sino de no pretender ser alguien que no eres. La gente detecta la incongruencia a nivel subconsciente, y erosiona la confianza.</p>
+
+                        <p>Los líderes con presencia fuerte son consistentes en sus valores y comportamientos, pero flexibles en su estilo de comunicación según la situación.</p>
+
+                        <p><strong>2. Presencia emocional</strong><br>
+                        Estar física en una sala no es suficiente. La presencia requiere estar mentalmente presente, enfocado en el momento actual en lugar de planeando tu próxima respuesta o pensando en tu siguiente reunión.</p>
+
+                        <p>Cuando realmente escuchas, cuando haces contacto visual significativo, cuando respondes a las sutilezas emocionales de una conversación, las personas lo sienten. Y esa presencia es magnética.</p>
+
+                        <p><strong>3. Confianza sin arrogancia</strong><br>
+                        La confianza auténtica es tranquila. No necesita probarse constantemente. La arrogancia, por otro lado, es ruidosa precisamente porque está compensando inseguridad.</p>
+
+                        <div class="highlight-box">
+                            <p>"La verdadera presencia ejecutiva es la capacidad de hacer que otros se sientan vistos, escuchados y seguros en tu compañía."</p>
+                        </div>
+
+                        <p><strong>4. Control emocional con calidez</strong><br>
+                        Los líderes con presencia fuerte pueden mantener la calma bajo presión sin volverse fríos o distantes. Gestionan sus emociones sin suprimirlas completamente. Esta combinación de estabilidad y humanidad es lo que crea seguridad psicológica en los equipos.</p>
+
+                        <h3>Señales de presencia ejecutiva débil</h3>
+                        <p>A veces es más fácil identificar lo que debilita tu presencia:</p>
+                        <ul>
+                            <li><strong>Sobre-explicar</strong> – Justificar cada decisión sugiere falta de confianza</li>
+                            <li><strong>Interrumpir constantemente</strong> – Muestra inseguridad y necesidad de control</li>
+                            <li><strong>Lenguaje vacilante</strong> – "Tal vez", "quizás", "no estoy seguro" en exceso mina la autoridad</li>
+                            <li><strong>Evitar contacto visual</strong> – Transmite inseguridad o falta de compromiso</li>
+                            <li><strong>Respuestas defensivas</strong> – Reaccionar en lugar de responder muestra falta de compostura</li>
+                        </ul>
+
+                        <h3>Cultivando tu presencia ejecutiva</h3>
+
+                        <p><strong>Practica el silencio estratégico</strong><br>
+                        No necesitas llenar cada pausa. El silencio consciente transmite reflexión y control. Antes de hablar, respira. Deja que tus palabras tengan peso.</p>
+
+                        <p><strong>Desarrolla tu lenguaje corporal</strong><br>
+                        Más del 50% de la comunicación es no verbal. Postura abierta, gestos intencionados, contacto visual apropiado. No se trata de poses artificiales, sino de alineación entre tu cuerpo y tu mensaje.</p>
+
+                        <p><strong>Maneja la energía de la sala</strong><br>
+                        Los líderes con presencia leen y responden a la energía colectiva. ¿La tensión es alta? Tu calma la reduce. ¿La motivación es baja? Tu convicción la eleva. Esta sintonía emocional es parte fundamental de la presencia.</p>
+
+                        <p><strong>Invierte en auto-conocimiento</strong><br>
+                        La presencia genuina requiere que conozcas tus fortalezas, limitaciones, y puntos ciegos. Considera feedback de 360 grados, coaching ejecutivo, o incluso grabarte en presentaciones para identificar patrones de los que no eres consciente.</p>
+
+                        <h3>El impacto real de la presencia ejecutiva</h3>
+                        <p>La presencia ejecutiva no es vanidad. Es una herramienta de liderazgo con impacto medible:</p>
+                        <ul>
+                            <li>Influencia mayor en decisiones estratégicas</li>
+                            <li>Confianza más rápida en negociaciones</li>
+                            <li>Equipos más alineados y comprometidos</li>
+                            <li>Mayor credibilidad ante el consejo y stakeholders</li>
+                            <li>Capacidad de inspirar incluso en tiempos difíciles</li>
+                        </ul>
+
+                        <p>En última instancia, la presencia ejecutiva es la traducción externa de tu claridad interna. Cuando sabes quién eres, qué representas, y a dónde vas, esa certeza se irradia naturalmente.</p>
+
+                        <div class="cta-section">
+                            <h3>¿Listo para fortalecer tu presencia ejecutiva?</h3>
+                            <p>Trabajamos juntos para identificar y eliminar los patrones que debilitan tu impacto, y cultivar una presencia auténtica y poderosa.</p>
+                            <a href="index.html#contact" class="cta-button">Exploremos cómo puedo ayudarte</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Recibe ideas sobre liderazgo en tu inbox</h2>
+            <p>Reflexiones mensuales sobre liderazgo, resiliencia y crecimiento ejecutivo.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="tu.email@empresa.com" required>
+                <button type="submit">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter form handling
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por suscribirte! Recibirás contenido valioso sobre liderazgo ejecutivo.');
+            this.reset();
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
